@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/icons/customer-service.png</file>
+        <file>assets/icons/customer-service-on-hoveres.png</file>
+        <file>assets/icons/egypt.png</file>
+        <file>assets/icons/home.png</file>
+        <file>assets/icons/info.png</file>
+        <file>assets/icons/left-arrow.png</file>
+        <file>assets/icons/person.png</file>
+        <file>assets/icons/right-arrow.png</file>
+        <file>assets/icons/settings.png</file>
+        <file>assets/fonts/Oswald-ExtraLight.ttf</file>
+    </qresource>
+</RCC>
