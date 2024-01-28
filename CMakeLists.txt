@@ -28,11 +28,16 @@ set(QML
 
     QML/Settings/Settings.qml
     QML/Settings/RightArrow.qml
+    QML/Settings/LanguagesList.qml
+)
+set(SettingsJS
+    QML/Settings/JS/Settings.js
+
 )
 qt_add_qml_module(VPN
     URI VPN
     VERSION 1.0
-    QML_FILES   ${QML}
+    QML_FILES   ${QML} ${SettingsJS}
     SOURCES src/useravatar.h src/useravatar.cpp
 
     RESOURCES resources/resources.qrc

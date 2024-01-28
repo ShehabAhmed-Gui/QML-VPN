@@ -77,16 +77,16 @@ Rectangle {
     id: settingsIcon
     width: 29
     height: 29
+    source: "qrc:/assets/icons/settings.png"
     anchors {
       verticalCenter: parent.verticalCenter
       right: parent.right
       rightMargin: 10
     }
-    source: "qrc:/assets/icons/settings.png"
-  }
-  MouseArea {
-    anchors.fill: parent
+    MouseArea {
+      anchors.fill: parent
 
-    onClicked: pageLoader.push("../../QML/Settings/Settings.qml")
+      onClicked: pageLoader.push("../../QML/Settings/Settings.qml")
+    }
   }
 }

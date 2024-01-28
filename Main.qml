@@ -12,8 +12,8 @@ Window {
   color: "black"
   minimumWidth: 900
   minimumHeight: 600
-  maximumWidth: 900
-  maximumHeight: 600
+  // maximumWidth: 900
+  // maximumHeight: 600
   StackView {
     id: pageLoader
     anchors.fill: parent

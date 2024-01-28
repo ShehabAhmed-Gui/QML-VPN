@@ -1,12 +1,14 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic
+import "./JS/Settings.js" as SettingsJs
 
 Rectangle {
-  id: background
+  id: settings
   color: "#000000"
-  width: 900
+  width: root.minimumWidth
   height: 600
+
   Rectangle {
     id: topBar
     color: "#340D0D"
@@ -70,7 +72,7 @@ Rectangle {
 
       Text {
         id: selectedLanguage
-        text: qsTr("English")
+        text: qsTr(SettingsJs.defaultLang)
         font.pixelSize: 20
         color: "#000000"
         opacity: .25
@@ -83,7 +85,7 @@ Rectangle {
       }
 
       RightArrow {
-        id: selectLang
+        id: openLanguagesList
         width: 21
         height: 21
         opacity: .30
@@ -91,6 +93,7 @@ Rectangle {
         MouseArea {
           anchors.fill: parent
           hoverEnabled: true
+          onClicked: pageLoader.push("../../QML/Settings/LanguagesList.qml")
           onEntered: cursorShape = Qt.PointingHandCursor
           onExited: cursorShape = Qt.ArrowCursor
         }

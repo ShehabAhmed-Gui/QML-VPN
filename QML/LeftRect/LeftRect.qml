@@ -80,7 +80,7 @@ Rectangle {
 
       anchors.fill: parent
 
-      onClicked: console.info("Home Button Was Clicked !")
+      onClicked: console.info("Home Button Was Clicked!")
     }
   }
 
@@ -100,13 +100,16 @@ Rectangle {
       id: settingsBtnMouseArea
 
       anchors.fill: parent
-      onClicked: console.info("settings Button Clicked")
+      onClicked: pageLoader.push("../../QML/Settings/Settings.qml")
     }
   }
 
   Image {
     id: customerServiceIcon
     source: "qrc:/assets/icons/customer-service.png"
+    // ToolTip.delay: -1
+    // ToolTip.text: "Customer Service"
+    // ToolTip.visible: true
     anchors {
       bottom: leftSubBottom.top
       horizontalCenter: parent.horizontalCenter
@@ -115,6 +118,7 @@ Rectangle {
       id: customerServiceMouseArea
       anchors.fill: parent
       hoverEnabled: true
+
       onEntered: {
         customerServiceIcon.source = "qrc:/assets/icons/customer-service-on-hoveres.png"
         cursorShape = Qt.PointingHandCursor
