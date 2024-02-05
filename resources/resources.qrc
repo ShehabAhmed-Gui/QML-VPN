@@ -10,5 +10,8 @@
         <file>assets/icons/right-arrow.png</file>
         <file>assets/icons/settings.png</file>
         <file>assets/fonts/Oswald-ExtraLight.ttf</file>
+        <file>assets/icons/checked.png</file>
+        <file>assets/icons/power-off.png</file>
+        <file>assets/icons/close (1).png</file>
     </qresource>
 </RCC>

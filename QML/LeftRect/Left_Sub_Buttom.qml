@@ -19,6 +19,7 @@ Rectangle {
   }
   UserAvatar {
     id: circleUserAvatar
+    smooth: true
     width: 70
     height: 54
     clip: true

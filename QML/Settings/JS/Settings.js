@@ -1,1 +1,0 @@
-var defaultLang = "Arabic"
