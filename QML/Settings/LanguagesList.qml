@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic
-import "./JS/Settings.js" as SettingsJs
 
 Rectangle {
   id: langsList
@@ -12,7 +11,7 @@ Rectangle {
   Rectangle {
     id: topBar
     width: parent.width
-    height: 60
+    height: 45
     color: "#434343"
     anchors {
       top: parent.top
@@ -24,6 +23,25 @@ Rectangle {
       color: "#B9B9B9"
       font.pixelSize: 22
       anchors.centerIn: parent
+    }
+
+    Image {
+      id: backward
+      width: 23
+      height: 23
+      source: "qrc:/assets/icons/left-arrow.png"
+      anchors {
+        left: parent.left
+        verticalCenter: parent.verticalCenter
+        leftMargin: 5
+      }
+      MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        onEntered: cursorShape = Qt.PointingHandCursor
+        onExited: cursorShape = Qt.ArrowCursor
+        onClicked: pageLoader.pop()
+      }
     }
   }
   ListModel {
@@ -52,10 +70,6 @@ Rectangle {
       anchors {
         horizontalCenter: parent.horizontalCenter
       }
-      MouseArea {
-        anchors.fill: parent
-        onClicked: pageLoader.pop()
-      }
 
       Text {
         id: languageName
@@ -72,9 +86,9 @@ Rectangle {
         id: selectLang
         Component.onCompleted: {
           for (var i = 0; i < languagesModel.count; i++) {
-            languagesModel.setProperty(
-                  i, "isDefault",
-                  SettingsJs.defaultLang === languagesModel.get(i).language)
+            languagesModel.setProperty(i, "isDefault",
+                                       "English" === languagesModel.get(
+                                         i).language)
           }
         }
         checked: isDefault

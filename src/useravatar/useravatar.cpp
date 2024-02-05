@@ -8,7 +8,7 @@ UserAvatar::UserAvatar()
 
 void UserAvatar::paint(QPainter *painter)
 {
-    QPixmap pixmap(m_imagePath);
+    QPixmap pixmap(m_imagePath.toUtf8());
     QPixmap scaled = pixmap.scaled(55, 55, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     QBrush brush(scaled);
     painter->setRenderHint(QPainter::SmoothPixmapTransform);

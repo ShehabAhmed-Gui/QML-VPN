@@ -11,7 +11,6 @@
 class UserAvatar : public QQuickPaintedItem
 {
     Q_OBJECT
-
 public:
     UserAvatar();
     void paint(QPainter *painter);

@@ -27,19 +27,22 @@ set(QML
     QML/Body/ServerSelectingButton.qml
 
     QML/Settings/Settings.qml
+    QML/Settings/SettingsTopBar.qml
+    QML/Settings/Switcher.qml
     QML/Settings/RightArrow.qml
     QML/Settings/LanguagesList.qml
 )
-set(SettingsJS
-    QML/Settings/JS/Settings.js
-
+set(Srcs
+     src/useravatar/useravatar.cpp
+     src/useravatar/useravatar.h
+     src/settings/settings.h
+     src/settings/settings.cpp
 )
 qt_add_qml_module(VPN
     URI VPN
     VERSION 1.0
-    QML_FILES   ${QML} ${SettingsJS}
-    SOURCES src/useravatar.h src/useravatar.cpp
-
+    QML_FILES   ${QML}
+    SOURCES ${Srcs}
     RESOURCES resources/resources.qrc
 )
 
