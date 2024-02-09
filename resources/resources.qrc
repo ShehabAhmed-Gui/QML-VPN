@@ -13,5 +13,6 @@
         <file>assets/icons/checked.png</file>
         <file>assets/icons/power-off.png</file>
         <file>assets/icons/close (1).png</file>
+        <file>assets/fonts/RobotoMono-Regular.ttf</file>
     </qresource>
 </RCC>

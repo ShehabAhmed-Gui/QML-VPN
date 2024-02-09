@@ -7,7 +7,7 @@ Switch {
   id: switcher
   checked: launchAtStart
   onCheckedChanged: {
-    settingsLogic.launchAtStart = checked
+    SettingsManager.launchAtStart = checked
   }
   anchors {
     right: parent.right

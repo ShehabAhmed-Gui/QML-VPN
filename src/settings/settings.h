@@ -9,9 +9,6 @@
 #include <QIODevice>
 #include <QTextStream>
 #include <QStandardPaths>
-#include <QQmlEngine>
-#include <QQmlComponent>
-#include <QQmlProperty>
 class SettingsHandler : public QObject
 {
     Q_OBJECT
@@ -19,10 +16,10 @@ public:
     SettingsHandler();
     ~SettingsHandler();
 public:
-    Q_PROPERTY(QString Language READ Language WRITE setLanguage NOTIFY LanguageChanged FINAL)
+    Q_PROPERTY(QString language READ language WRITE setlanguage NOTIFY languageChanged FINAL)
     Q_PROPERTY(bool launchAtStart READ launchAtStart WRITE setlaunchAtStart NOTIFY launchAtStartChanged FINAL)
-    QString Language() const;
-    void setLanguage(const QString &newLanguage);
+    QString language() const;
+    void setlanguage(const QString &newLanguage);
 
     Q_INVOKABLE void loadSettings();
     Q_INVOKABLE void saveSettings();
@@ -31,11 +28,11 @@ public:
     void setlaunchAtStart(bool newLaunchAtStart);
 
 signals:
-    void LanguageChanged();
+    void languageChanged();
     void launchAtStartChanged();
 
 private:
-    QString m_Language;
+    QString m_language;
     QString settingsPath;
     bool m_launchAtStart;
 };

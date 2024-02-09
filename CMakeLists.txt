@@ -31,18 +31,27 @@ set(QML
     QML/Settings/Switcher.qml
     QML/Settings/RightArrow.qml
     QML/Settings/LanguagesList.qml
+
+    QML/InfoPages/About.qml
 )
-set(Srcs
-     src/useravatar/useravatar.cpp
+set(headers
      src/useravatar/useravatar.h
      src/settings/settings.h
+     src/networking/networking.h
+)
+set(sources
+     src/useravatar/useravatar.cpp
      src/settings/settings.cpp
+     src/networking/networking.cpp
+)
+set(JS
+    QML/InfoPages/JS/AboutLetter.js
 )
 qt_add_qml_module(VPN
     URI VPN
     VERSION 1.0
-    QML_FILES   ${QML}
-    SOURCES ${Srcs}
+    QML_FILES   ${QML} ${JS}
+    SOURCES ${sources} ${headers}
     RESOURCES resources/resources.qrc
 )
 

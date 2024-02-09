@@ -1,7 +1,7 @@
 #include "settings.h"
 
 SettingsHandler::SettingsHandler()
-    : m_Language ("English")
+    : m_language ("English")
     , m_launchAtStart (true)
     , settingsPath(QStandardPaths::standardLocations(QStandardPaths::DocumentsLocation).value(0) + "/VPN")
 {
@@ -13,32 +13,38 @@ SettingsHandler::~SettingsHandler()
     saveSettings();
 }
 
-QString SettingsHandler::Language() const
+QString SettingsHandler::language() const
 {
-    return m_Language;
+    return m_language;
 }
 
-void SettingsHandler::setLanguage(const QString &newLanguage)
+void SettingsHandler::setlanguage(const QString &newLanguage)
 {
-    if (m_Language == newLanguage)
+    if (m_language == newLanguage)
         return;
-    m_Language = newLanguage;
+    m_language = newLanguage;
+    emit languageChanged();
 }
 
 void SettingsHandler::loadSettings()
 {
     QSettings settings(settingsPath  + "/Settings.ini", QSettings::IniFormat);
-    bool isAutoLaunchAtStart = settings.value("launch_at_start").toBool();
+    const bool isAutoLaunchAtStart = settings.value("launch_at_start").toBool();
+    const QString language = settings.value("application_language").toString();
+    setlanguage(language);
     setlaunchAtStart(isAutoLaunchAtStart);
 }
 
 void SettingsHandler::saveSettings()
 {
+
      QDir dir(settingsPath);
      if(!dir.exists())
          dir.mkdir(settingsPath);
-    QSettings settings(settingsPath + "/Settings.ini", QSettings::IniFormat);
+      QSettings settings(settingsPath + "/Settings.ini", QSettings::IniFormat);
      settings.setValue("launch_at_start", m_launchAtStart);
+      settings.setValue("application_language", m_language);
+     settings.sync();
 }
 
 bool SettingsHandler::launchAtStart() const

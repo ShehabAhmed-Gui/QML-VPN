@@ -4,19 +4,15 @@ import QtQuick.Controls.Basic
 import CustomComponents
 
 Rectangle {
-  property bool launchAtStart: settingsLogic.launchAtStart
   id: settings
+  property bool launchAtStart: SettingsManager.launchAtStart
   color: "#000000"
   width: root.minimumWidth
   height: 600
-  SettingsLogic {
-    id: settingsLogic
-    onLaunchAtStartChanged: {
-      console.log(launchAtStart)
-    }
-  }
+
   SettingsTopBar {
     id: settingsHeader
+    title: "Settings"
   }
   Rectangle {
     id: settingsTopRect
@@ -140,6 +136,13 @@ Rectangle {
     RightArrow {
       id: openAbout
       anchors.verticalCenter: about.verticalCenter
+      MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        onClicked: pagesDynamicLoader.source = "QML/InfoPages/About.qml"
+        onEntered: cursorShape = Qt.PointingHandCursor
+        onExited: cursorShape = Qt.ArrowCursor
+      }
     }
   }
 }

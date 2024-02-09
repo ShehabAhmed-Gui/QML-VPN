@@ -1,9 +1,11 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic
+import CustomComponents
 
 Rectangle {
   id: langsList
+  property string language: SettingsManager.language
   width: root.minimumWidth
   height: 600
   color: "#000000"
@@ -86,18 +88,16 @@ Rectangle {
         id: selectLang
         Component.onCompleted: {
           for (var i = 0; i < languagesModel.count; i++) {
-            languagesModel.setProperty(i, "isDefault",
-                                       "English" === languagesModel.get(
-                                         i).language)
+            languagesModel.setProperty(
+                  i, "isDefault",
+                  SettingsManager.language === languagesModel.get(i).language)
           }
         }
         checked: isDefault
         ButtonGroup.group: radioBttnsGroup
         onCheckedChanged: if (selectLang.checked
-                              && languageName.text !== SettingsJs.defaultLang) {
-                            console.log(
-                                  "change Language to " + languageName.text)
-                            SettingsJs.defaultLang = languageName.text
+                              && languageName.text !== SettingsManager.language) {
+                            SettingsManager.language = languageName.text
                           }
         anchors {
           right: languageAttrCotnainer.right

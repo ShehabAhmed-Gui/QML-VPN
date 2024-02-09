@@ -10,14 +10,18 @@ Window {
   id: root
   visible: true
   color: "black"
-  minimumWidth: 900
-  minimumHeight: 600
+  minimumWidth: 1000
+  minimumHeight: 650
   // maximumWidth: 900
   // maximumHeight: 600
   StackView {
     id: pageLoader
     anchors.fill: parent
     initialItem: background
+  }
+  Loader {
+    id: pagesDynamicLoader
+    anchors.fill: parent
   }
   Item {
     id: background
